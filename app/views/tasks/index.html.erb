@@ -1,16 +1,13 @@
 <h1>List of tasks</h1>
+<h2><%= link_to "Add task", new_task_path %></h2>
 
+<ul>
 <% @tasks.each do |task| %>
-  <h2><%= link_to task.name, tasks_path(task),
-        method: :edit %></h2>
-    <p><%= task.status %>
-      <%= link_to "Edit", tasks_path(task),
-        method: :edit %>
-      <%= link_to "Delete", tasks_path(task),
-        method: :delete,
-        data: { confirm: "Are you sure?" } %>
+  <li>
+    <p><%= link_to task.name, task_path(task) %> : <%= task.status ? "Done :)" : "TBD" %>
     </p>
-<% end %>
+</li>
 
-<h2>
-  <%= link_to "Add task", tasks_path %></h2>
+<% end %>
+</ul>
+
